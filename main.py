@@ -1,17 +1,29 @@
+from os import lseek
 from tkinter import *
 from tkinter.ttk import *
-from tkinter.filedialog import askopenfile 
+from tkinter.filedialog import askopenfilenames
 import time
-
+from resume_parser import resumeparse
+lseek
 ws = Tk()
 ws.title('Resume parser')
 ws.geometry('400x200') 
 
+adhar = Label(
+    ws, 
+    text='Upload Government id in jpg format '
+    )
+adhar.grid(row=0, column=0, padx=10)
+
 
 def open_file():
-    file_paths = filez = fd.askopenfilenames(parent=root, title='Choose a file')
-    if file_path is not None:
+    file_paths = askopenfilenames(title='Choose a file', multiple=True)
+    if file_paths is not None:
+        for file_path in file_paths:
+            print(resumeparse.read_file(file_path))
+    else:
         pass
+
 
 
 def uploadFiles():
@@ -31,11 +43,7 @@ def uploadFiles():
         
     
     
-adhar = Label(
-    ws, 
-    text='Upload Government id in jpg format '
-    )
-adhar.grid(row=0, column=0, padx=10)
+
 
 adharbtn = Button(
     ws, 
