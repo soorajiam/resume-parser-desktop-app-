@@ -4,6 +4,7 @@ from tkinter.ttk import *
 from tkinter.filedialog import askopenfilenames
 import time
 from resume_parser import resumeparse
+
 lseek
 ws = Tk()
 ws.title('Resume parser')
@@ -25,7 +26,6 @@ def open_file():
         pass
 
 
-
 def uploadFiles():
     pb1 = Progressbar(
         ws, 
@@ -40,10 +40,7 @@ def uploadFiles():
         time.sleep(1)
     pb1.destroy()
     Label(ws, text='File Uploaded Successfully!', foreground='green').grid(row=4, columnspan=3, pady=10)
-        
     
-    
-
 
 adharbtn = Button(
     ws, 
@@ -58,7 +55,6 @@ upld = Button(
     command=uploadFiles
     )
 upld.grid(row=3, columnspan=3, pady=10)
-
 
 
 ws.mainloop()
